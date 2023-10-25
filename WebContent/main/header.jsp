@@ -8,51 +8,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-	*{padding: 0; margin: 0;}
-	#header{background-color: #fff; }
-	header{display: block;}
-	#gnb{
-		position: relative;
-		z-index: 1001;
-		background:  : beige;
-	}
-	.sitemenu{
-		position: relative;
-		z-index: 1001;
-		max-width: 1200px;
-		min-height: 134;
-		margin: 0 auto;
-	}
-	.snb{
-		position: absolute;
-		top 53px;
-		right: 0;
-	}
-	.sitemenu > ul > li{
-		float: left;
-	}
-	.sitemenu > ul > li a{
-		display: block;
-		font-size: 1.125em;
-		padding: 0 12px;
-	}
-</style>
+<link href="${conPath }/css/reset/reset.css" rel="stylesheet">
+<link href="${conPath }/css/header.css" rel="stylesheet">
 </head>
 <body>
 <header>
-	<div id="gnb">
-		<div class="sitemenu">
-			<div class="snb">
-				<ul>
-					<li class="login"><a href="">고객센터</a></li>
-					<li class="join"><a href="">회원가입</a></li>
-					<li><a href="">로그인</a></li>
-				</ul>
-			</div>
-		</div>
+	<c:if test="${empty member}">
+	<div class="logo" onclick="location.href='${conPath}/main.do'">
+		<img src="../img/logo.png" alt="도서관로고">
 	</div>
-</header>	
+	<div class="gnb">
+		<ul>
+			<li><a href="${conPath }/join.do">회원가입</a></li>
+			<li><a href="${conPath }/login.do">로그인</a></li>
+		</ul>
+	</div>
+	<div class="lnb">
+		<ul>
+			<li><a href="">자료검색</a></li>
+			<li><a href="">커뮤니티</a></li>			
+			<li><a href="">마이페이지</a></li>			
+			<li><a href="">공지사항</a></li>			
+		</ul>
+	</div>
+	</c:if>
+	<c:if test="${!empty member}">
+	<div class="logo" onclick="location.href='${conPath}/boardList.do'">
+		LOGO
+	</div>
+		<ul>
+			<li><a href="${conPath }logout.do">로그아웃</a></li>
+			<li><a href="${conPath }/modifyView.do">정보수정</a></li>
+		</ul>
+	</c:if>
+</header>
 <hr>	
 </body>
 </html>
