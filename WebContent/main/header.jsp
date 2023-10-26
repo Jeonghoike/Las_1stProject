@@ -13,33 +13,60 @@
 </head>
 <body>
 <header>
-	<c:if test="${empty member}">
+	<c:if test="${empty member and empty admin}">
 	<div class="logo" onclick="location.href='${conPath}/main.do'">
 		<img src="../img/logo.png" alt="도서관로고">
 	</div>
 	<div class="gnb">
 		<ul>
-			<li><a href="${conPath }/join.do">회원가입</a></li>
-			<li><a href="${conPath }/login.do">로그인</a></li>
+			<li><a href="${conPath }/joinView.do">회원가입</a></li>
+			<li><a href="${conPath }/loginView.do">로그인</a></li>
 		</ul>
 	</div>
 	<div class="lnb">
 		<ul>
-			<li><a href="">자료검색</a></li>
+			<li><a href="">도서보기</a></li>
 			<li><a href="">커뮤니티</a></li>			
 			<li><a href="">마이페이지</a></li>			
 			<li><a href="">공지사항</a></li>			
 		</ul>
 	</div>
 	</c:if>
-	<c:if test="${!empty member}">
+	<c:if test="${not empty member and empty admin}">
 	<div class="logo" onclick="location.href='${conPath}/boardList.do'">
 		LOGO
 	</div>
+	<div class="gnb">
 		<ul>
 			<li><a href="${conPath }logout.do">로그아웃</a></li>
 			<li><a href="${conPath }/modifyView.do">정보수정</a></li>
+			<li><a>${member.mname }님</a></li>
 		</ul>
+	</div>	
+	<div class="lnb">
+		<ul>
+			<li><a href="">도서보기</a></li>
+			<li><a href="">커뮤니티</a></li>			
+			<li><a href="">마이페이지</a></li>			
+			<li><a href="">공지사항</a></li>			
+		</ul>
+	</div>
+	</c:if>
+	<c:if test="${empty member and not empty admin }">
+	<div class="gnb">
+		<ul>
+			<li><a href="${conPath }logout.do">관리자 로그아웃</a></li>
+			<li><a href="${conPath }/modifyView.do">정보수정</a></li>
+		</ul>
+	</div>
+	<div class="lnb">
+		<ul>
+			<li><a href="">도서보기</a></li>
+			<li><a href="">커뮤니티</a></li>			
+			<li><a href="">마이페이지</a></li>			
+			<li><a href="">공지사항</a></li>			
+		</ul>
+	</div>	
 	</c:if>
 </header>
 <hr>	

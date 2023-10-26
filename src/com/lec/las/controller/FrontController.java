@@ -20,6 +20,7 @@ public class FrontController extends HttpServlet {
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		actionDo(request, response);
 	}
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -29,7 +30,7 @@ public class FrontController extends HttpServlet {
 		String viewPage = null;
 		Service service = null;		
 		if(command.equals("/main.do")) {
-			viewPage = "main/header.jsp";
+			viewPage = "main/main.jsp";
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
 		 * * * * * * * * * * member 관련 요청  * * * * * * * * * *
 		 * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -117,6 +118,23 @@ public class FrontController extends HttpServlet {
 			service = new FBoardReplyService();
 			service.execute(request, response);
 			viewPage = "boardList.do";
+		/* * * * * * * * * * * * * * * * * * * * * * * * * * * 
+		 * * * * * * * * 파일첨부 게시판 관련 요청  * * * * * * * * * *
+		 * * * * * * * * * * * * * * * * * * * * * * * * * * */
+		}else if(command.equals("/bookList.do")) {
+			service = new BookListService();
+			service.execute(request, response);
+			viewPage = "book/bookList.jsp";
+		}else if(command.equals("/bookRegisterView.do")){
+			viewPage = "book/bookRegister.jsp";
+		}else if(command.equals("/bookRegister.do")) {
+			service = new BookRegisterService();
+			service.execute(request, response);
+			viewPage = "bookList.do";
+		}else if(command.equals("/bookContent.do")) {
+			service = new BookContentService();
+			service.execute(request, response);
+			viewPage = "bookContent.jsp";
 		}
 		RequestDispatcher dispathcer = request.getRequestDispatcher(viewPage);
 		dispathcer.forward(request, response);		

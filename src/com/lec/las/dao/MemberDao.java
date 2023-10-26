@@ -136,7 +136,7 @@ public class MemberDao {
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
 		ResultSet         rs    = null;
-		String sql = "SELECT * FROM MEMBER WHERE mID = ? AND mPW = ?";
+		String sql = "SELECT * FROM MEMBER WHERE mID = ? and mPW = ?";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);

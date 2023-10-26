@@ -6,9 +6,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="${conPath }/css/common.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="${conPath }/css/common.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+	$(function(){
+  		$('input[name="mid"]').keyup(function(){
+  			var mid = $(this).val();
+  			if(mid.length<2){
+  				$('#midConfirmResult').text('아이디는 2글자 이상');
+  			}else{
+  				$.ajax({
+  					url : '${conPath}/midConfirm.do',
+  					type : 'get',
+  					data : 'mid='+mid,
+  					dataType : 'html',
+  					success : function(data){
+  						$('#midConfirmResult').html(data);
+  					},
+  				});// ajax함수
+  			}//if
+  		})
+  		
+  		$('input[name="mpw"], input[name="mpwChk"]').keyup(function(){
+  			var pw = $('input[name="mpw"]').val();
+  			var pwChk = $('input[name="mpwChk"]').val();
+  			if(!pw && !pwChk){
+  				$('#mpwChkResult').html(' &nbsp; ');
+  			}else if(pw == pwChk){
+  				$('#mpwChkResult').text('비밀번호 일치');
+  			}else{
+  				$('#mpwChkResult').text('비밀번호 불일치');
+  			}
+  		});
+  		var patternMemail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
+  		$('input[name="memail"]').keyup(function(){
+  			let memail = $(this).val();
+  			if(!memail){
+  				$('#memailConfirmResult').html(' &nbsp; ');
+  			}else if(!memail.match(patternMemail)){
+  				$('#memailConfirmResult').html('<b>메일 형식을 지켜 주세요</b>');
+  			}else{
+  				$.ajax({
+  					url : '${conPath}/memailConfirm.do',
+  					type : 'get',
+  					data : 'memail='+memail,
+  					dataType : 'html',
+  					success : function(data){
+  						$('#memailConfirmResult').html(data);
+  					},
+  				});
+  			}
+  		});
+  		$('form').submit(function(){
+			var midConfirmResult = $('#midConfirmResult').text().trim();
+  			var mpwChkResult = $('#mpwChkResult').text().trim();
+  			var memailConfirmResult = $('#memailConfirmResult').text().trim();
+  			if(midConfirmResult != '사용 가능한 ID'){
+  				alert('사용 가능한 ID인지 확인하세요');
+  				$('input[name="mid"]').focus();
+  				return false; // submit 제한
+  			}else if(mpwChkResult != '비밀번호 일치'){
+  				alert('비밀번호를 확인하세요');
+  				$('input[name="mpw"]').focus();
+  				return false;
+  			}else if(memailConfirmResult != '사용 가능한 메일' && memailConfirmResult!= ''){
+  				alert('메일을 확인하세요');
+  				$('input[name="memail"]').focus();
+  				return false;
+  			}
+  	  	});
+	});
+	</script>
+	<script>
+	  $( function() {
+	    $( "#datepicker" ).datepicker({
+	    	dateFormat: "yy-mm-dd",
+	    	monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    	dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
+	    	changeMonth: true, 
+	    	changeYear: true, 
+	    	showMonthAfterYear: true,
+	    	yearSuffix: '년',
+	    	showOtherMonths: true, 
+	    	minDate: new Date(1950, 1 - 1, 1), 
+	    	maxDate : 'y',
+	    	yearRange: 'c-100:c+10',
+	    });
+	  });
+  </script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
