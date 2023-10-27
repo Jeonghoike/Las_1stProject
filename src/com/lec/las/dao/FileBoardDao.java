@@ -55,14 +55,13 @@ public class FileBoardDao {
 				String ftitle   = rs.getString("ftitle");
 				String fcontent = rs.getString("fcontent");
 				String ffileName= rs.getString("ffileName");
-				String fpw= rs.getString("fpw");
 				int    fhit     = rs.getInt("fhit");
 				int    fgroup   = rs.getInt("fgroup");
 				int    fstep    = rs.getInt("fstep");
 				int    findent  = rs.getInt("findent");
 				String fip      = rs.getString("fip");
 				Timestamp frdate= rs.getTimestamp("frdate");
-				dtos.add(new FileBoardDto(fid, mid, mname, ftitle, fcontent, ffileName, fpw, fhit, fgroup, fstep, findent, fip, frdate));
+				dtos.add(new FileBoardDto(fid, mid, mname, ftitle, fcontent, ffileName, fhit, fgroup, fstep, findent, fip, frdate));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -108,8 +107,8 @@ public class FileBoardDao {
 		int result = FAIL;
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO FILEBOARD (fID, mID, fTITLE, fCONTENT, fFILENAME, fPW, fGROUP, fSTEP, fINDENT, fIP) " + 
-				"    VALUES (BOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, BOARD_SEQ.CURRVAL, 0, 0, ?)";
+		String sql = "INSERT INTO FILEBOARD (fID, mID, fTITLE, fCONTENT, fFILENAME, fGROUP, fSTEP, fINDENT, fIP) " + 
+				"    VALUES (BOARD_SEQ.NEXTVAL, ?, ?, ?, ?, BOARD_SEQ.CURRVAL, 0, 0, ?)";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -117,8 +116,7 @@ public class FileBoardDao {
 			pstmt.setString(2, dto.getFtitle());
 			pstmt.setString(3, dto.getFcontent());
 			pstmt.setString(4, dto.getFfileName());
-			pstmt.setString(5, dto.getFpw());
-			pstmt.setString(6, dto.getFip());
+			pstmt.setString(5, dto.getFip());
 			pstmt.executeUpdate();
 			result = SUCCESS;
 			System.out.println("원글쓰기 성공");
@@ -173,14 +171,13 @@ public class FileBoardDao {
 				String ftitle = rs.getString("ftitle");
 				String fcontent = rs.getString("fcontent");
 				String ffileName = rs.getString("ffileName");
-				String fpw = rs.getString("fpw");
 				int    fhit = rs.getInt("fhit");
 				int    fgroup= rs.getInt("fgroup");
 				int    fstep= rs.getInt("fstep");
 				int    findent= rs.getInt("findent");
 				String fip = rs.getString("fip");
 				Timestamp frdate = rs.getTimestamp("frdate");
-				dto = new FileBoardDto(fid, mid, mname, ftitle, fcontent, ffileName, fpw, fhit, fgroup, fstep, findent, fip, frdate);
+				dto = new FileBoardDto(fid, mid, mname, ftitle, fcontent, ffileName, fhit, fgroup, fstep, findent, fip, frdate);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -328,8 +325,8 @@ public class FileBoardDao {
 		preReplyFileBoardStep(dto.getFgroup(), dto.getFstep());
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO FILEBOARD (fID, mID, fTITLE, fCONTENT, fFILENAME, fPW, fGROUP, fSTEP, fINDENT, fIP) " + 
-				"    VALUES (BOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO FILEBOARD (fID, mID, fTITLE, fCONTENT, fFILENAME, fGROUP, fSTEP, fINDENT, fIP) " + 
+				"    VALUES (BOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -337,11 +334,10 @@ public class FileBoardDao {
 			pstmt.setString(2, dto.getFtitle());
 			pstmt.setString(3, dto.getFcontent());
 			pstmt.setString(4, dto.getFfileName());
-			pstmt.setString(5, dto.getFpw());
-			pstmt.setInt(6, dto.getFgroup());
-			pstmt.setInt(7, dto.getFstep() + 1);
-			pstmt.setInt(8, dto.getFindent() + 1);
-			pstmt.setString(9, dto.getFip());
+			pstmt.setInt(5, dto.getFgroup());
+			pstmt.setInt(6, dto.getFstep() + 1);
+			pstmt.setInt(7, dto.getFindent() + 1);
+			pstmt.setString(8, dto.getFip());
 			pstmt.executeUpdate();
 			result = SUCCESS;
 			System.out.println("답변글쓰기 성공");

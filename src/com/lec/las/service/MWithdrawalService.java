@@ -19,8 +19,8 @@ public class MWithdrawalService implements Service {
 		if(sessionMember != null) {
 			mid = sessionMember.getMid();
 		}
-		FileBoardDao bDao = FileBoardDao.getInstance();
-		int cnt = bDao.preWithdrawalMemberStep(mid); // 탈퇴할 회원의 글 모두 삭제
+		FileBoardDao fbDao = FileBoardDao.getInstance();
+		int cnt = fbDao.preWithdrawalMemberStep(mid); // 탈퇴할 회원의 글 모두 삭제
 		MemberDao mDao = MemberDao.getInstance();
 		int result = mDao.withdrawalMember(mid); // 회원탈퇴
 		session.invalidate(); // 세션 삭제

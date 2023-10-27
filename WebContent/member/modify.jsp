@@ -8,6 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link href="${conPath }/css/common.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -58,8 +59,8 @@
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content_form">
-		<form action="${conPath }/modify.do" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="dbMphoto" value="${member.mphoto }">
+		<form action="${conPath }/modify.do" method="post" >
+			<input type="hidden" name="next" value="${param.next }">
 			<table>
 				<caption>정보수정</caption>
 				<tr>

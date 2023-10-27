@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="${conPath }/css/common.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="${conPath }/css/common.css" rel="stylesheet">
 </head>
 <body>
 	<c:if test="${not empty joinResult }">

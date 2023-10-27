@@ -42,13 +42,12 @@ public class FBoardReplyService implements Service {
 			String mid = member.getMid();
 			String ftitle = mRequest.getParameter("ftitle");
 			String fcontent = mRequest.getParameter("fcontent");
-			String fpw = mRequest.getParameter("fpw");
 			String fip = request.getRemoteAddr();
 			int fgroup = Integer.parseInt(mRequest.getParameter("fgroup"));
 			int fstep = Integer.parseInt(mRequest.getParameter("fstep"));
 			int findent = Integer.parseInt(mRequest.getParameter("findent"));
 			FileBoardDao boardDao = FileBoardDao.getInstance();
-			FileBoardDto boardDto = new FileBoardDto(0, mid, null, ftitle, fcontent, ffileName, fpw, 0, fgroup, fstep, findent, fip, null);
+			FileBoardDto boardDto = new FileBoardDto(0, mid, null, ftitle, fcontent, ffileName, 0, fgroup, fstep, findent, fip, null);
 			result = boardDao.reply(boardDto);
 			// joinMember결과에 따라 적절히 request.setAttribute
 			if(result == FileBoardDao.SUCCESS) { // 회원가입 진행

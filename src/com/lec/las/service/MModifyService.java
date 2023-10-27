@@ -16,9 +16,6 @@ public class MModifyService implements Service {
 		String mid = request.getParameter("mid");
 		String oldMpw = request.getParameter("oldMpw");
 		String mpw = request.getParameter("mpw");
-		if(mpw.equals("")) {
-			mpw = oldMpw;
-		}
 		String mname = request.getParameter("mname");
 		String mtel = request.getParameter("mtel");
 		String memail = request.getParameter("memail");
@@ -38,7 +35,7 @@ public class MModifyService implements Service {
 			session.setAttribute("member", mDto);
 			request.setAttribute("modifyResult", "회원 정보 수정 성공");
 		}else {
-			request.setAttribute("modifyErrorMsg", "회원정보 수정 실패(정보가 길거나 mid check)");
+			request.setAttribute("modifyErrorMsg", "회원정보 수정 실패");
 		}
 	}
 }

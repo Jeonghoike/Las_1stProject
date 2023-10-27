@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="${conPath }/css/common.css" rel="stylesheet">
 </head>
 <body>
 	<c:if test="${not empty adminLoginResult }">
@@ -28,11 +29,8 @@
 			<tr>
 				<c:forEach var="dto" items="${members }">
 					<td>
-						<img src="${conPath }/memberPhotoUp/${dto.mphoto}"
-								alt="${dto.mname }사진" width="120">
 						<p>
-							${dto.mname }<br>
-							(${dto.mid })
+							${dto.mname }(${dto.mid })
 						</p>
 					</td>
 				</c:forEach>

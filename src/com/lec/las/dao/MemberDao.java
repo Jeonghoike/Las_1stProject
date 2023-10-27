@@ -147,7 +147,7 @@ public class MemberDao {
 				result = LOGIN_SUCCESS;
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage() + " : 로그인 체크 예외");
 		} finally {
 			try {
 				if(rs   !=null) rs.close();
@@ -174,7 +174,7 @@ public class MemberDao {
 			if(rs.next()) {
 				String mpw       = rs.getString("mpw");
 				String mname     = rs.getString("mname");
-				String mtel     = rs.getString("tel");
+				String mtel     = rs.getString("mtel");
 				String memail    = rs.getString("memail");
 				String mgender    = rs.getString("mgender");;
 				Date   mbirth    = rs.getDate("mbirth");
@@ -183,7 +183,7 @@ public class MemberDao {
 				member = new MemberDto(mid, mpw, mname, mtel, memail, mgender, mbirth, maddress, mrdate);
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage() + " : getMember 예외");
 		} finally {
 			try {
 				if(rs   !=null) rs.close();

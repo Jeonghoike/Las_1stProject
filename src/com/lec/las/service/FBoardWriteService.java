@@ -42,10 +42,9 @@ public class FBoardWriteService implements Service {
 				String mid = member.getMid(); // 로그인 한 사람의 mId
 				String ftitle = mRequest.getParameter("ftitle");
 				String fcontent = mRequest.getParameter("fcontent");
-				String fpw = mRequest.getParameter("fpw");
 				String fip = request.getRemoteAddr();
 				FileBoardDao boardDao = FileBoardDao.getInstance();
-				FileBoardDto boardDto = new FileBoardDto(0, mid, null, ftitle, fcontent, ffileName, fpw, 0, 0, 0, 0, fip, null);
+				FileBoardDto boardDto = new FileBoardDto(0, mid, null, ftitle, fcontent, ffileName, 0, 0, 0, 0, fip, null);
 				result = boardDao.writeFileBoard(boardDto);
 				// joinMember결과에 따라 적절히 request.setAttribute
 				if(result == FileBoardDao.SUCCESS) {

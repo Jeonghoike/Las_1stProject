@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="${conPath }/css/common.css" rel="stylesheet">
 </head>
 <body>
 	<c:if test="${not empty admin }">
@@ -18,7 +19,7 @@
 	</c:if>
 	<c:if test="${not empty member }">
 		<script>
-			alert('사용자 주제에 떼끼'); 
+			alert('관리자용'); 
 			history.back();
 		</script>
 	</c:if>

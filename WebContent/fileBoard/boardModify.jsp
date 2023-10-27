@@ -13,7 +13,7 @@
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content_form">
 	<form action="${conPath }/boradModify.do" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="pageNum" value="${param.pageNum }">
+		<input type="hidden" name="pageNum" value="${param.pageNum}">
 		<input type="hidden" name="fid" value="${board.fid }">
 		<input type="hidden" name="dbFileName" value="${board.ffileName }">
 		<table>
@@ -33,12 +33,12 @@
 			<tr>
 				<th>첨부파일</th>
 				<td>
-					<input type="file" name="ffileName" class="btn"> 원첨부파일:
+					<input type="file" name="ffileName" class="btn"> 첨부파일:
 					<c:if test="${not empty board.ffileName }">
 				 		<a href="${conPath }/fileBoardUp/${board.ffileName}" target="_blank">${board.ffileName}</a>
 				 	</c:if>
 				 	<c:if test="${empty board.ffileName }">
-				 		첨부파일없음
+				 		없음
 				 	</c:if>
 				</td>
 			</tr>

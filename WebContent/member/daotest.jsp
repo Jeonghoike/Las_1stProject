@@ -16,12 +16,12 @@
 	<%
 	MemberDao dao = MemberDao.getInstance();
 	out.println("<h3>1.회원id중복체크</h3>");
-	if(MemberDao.EXISTENT == dao.midConfirm("bbb")){
+	if(MemberDao.EXISTENT == dao.midConfirm("rrr")){
 		out.println("bbb는 중복된 ID");
-	}else if(MemberDao.NONEXISTENT == dao.midConfirm("bbb")){
-		out.println("bbb는 사용가능한 ID");
+	}else if(MemberDao.NONEXISTENT == dao.midConfirm("rrr")){
+		out.println("vvv 사용가능한 ID");
 		out.println("<h3>2.회원가입</h3>");
-		int result = dao.joinMember(new MemberDto("vvv","1","신길","010-2222-2222","h@h.com","w",null, "경기",null));
+		int result = dao.joinMember(new MemberDto("rrr","2","신길","010-2222-2222","h@h.com","w",null, "경기",null));
 		if(result == MemberDao.SUCCESS){
 			out.println("회원가입 성공");
 		}else if(result == MemberDao.FAIL){
@@ -29,7 +29,7 @@
 		}
 	}
 	out.println("<h3>3.로그인</h3>");
-	String mid = "bbb", mpw="1";
+	String mid = "vvv", mpw="1";
 	int result = dao.loginCheck(mid, mpw);
 	if(result == MemberDao.SUCCESS){
 		out.println("<p>"+mid+"/"+mpw+" 로그인 성공</p>");

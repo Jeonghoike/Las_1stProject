@@ -16,7 +16,6 @@ public class MemberDto {
 	public MemberDto() { }
 	public MemberDto(String mid, String mpw, String mname, String mtel, String memail, String mgender, Date mbirth,
 			String maddress, Timestamp mrdate) {
-		super();
 		this.mid = mid;
 		this.mpw = mpw;
 		this.mname = mname;

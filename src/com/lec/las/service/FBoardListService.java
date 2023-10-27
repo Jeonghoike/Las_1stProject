@@ -14,14 +14,14 @@ public class FBoardListService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum==null) {
-			if(request.getAttribute("pageNum")!=null) { // 글 수정이나 답변글처리시 mRequest를 사용하여서 request에 set함
+			if(request.getAttribute("pageNum")!=null) { 
 				pageNum = (String)request.getAttribute("pageNum");
 			}else {
 				pageNum = "1";
 			}
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		final int PAGESIZE=10, BLOCKSIZE=10;
+		final int PAGESIZE=6, BLOCKSIZE=10;
 		int startRow = (currentPage-1) * PAGESIZE +1;
 		int endRow   = startRow + PAGESIZE -1;
 		FileBoardDao boardDao = FileBoardDao.getInstance();
@@ -38,7 +38,7 @@ public class FBoardListService implements Service {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("pageCnt", pageCnt);
-		request.setAttribute("totCnt", totCnt); // totCnt는 없으면 boardList.size()대용
+		request.setAttribute("totCnt", totCnt); 
 		request.setAttribute("pageNum", currentPage);
 	}
 }

@@ -14,6 +14,33 @@
 </style>
 </head>
 <body>
+	<c:if test="${not empty param.next && empty loginErrorMsg}">
+		<script>
+			location.href = '${conPath}/${param.next}';
+		</script>
+	</c:if>
+	<c:if test="${not empty loginErrorMsg }">
+		<script>
+			alert('${loginErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty modifyResult }">
+		<script>
+			alert('${modifyResult}');
+		</script>
+	</c:if>
+	<c:if test="${not empty modifyErrorMsg }">
+		<script>
+			alert('${modifyErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty withdrawalResult }">
+		<script>
+			alert('${withdrawalResult}');
+		</script>
+	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content_form">
 		<form action="" method="post" id="searchform">

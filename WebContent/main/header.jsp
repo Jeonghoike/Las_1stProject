@@ -26,7 +26,7 @@
 	<div class="lnb">
 		<ul>
 			<li><a href="">도서보기</a></li>
-			<li><a href="">커뮤니티</a></li>			
+			<li><a href="${conPath }/boardList.do">커뮤니티</a></li>			
 			<li><a href="">마이페이지</a></li>			
 			<li><a href="">공지사항</a></li>			
 		</ul>
@@ -38,7 +38,7 @@
 	</div>
 	<div class="gnb">
 		<ul>
-			<li><a href="${conPath }logout.do">로그아웃</a></li>
+			<li><a href="${conPath }/logout.do">로그아웃</a></li>
 			<li><a href="${conPath }/modifyView.do">정보수정</a></li>
 			<li><a>${member.mname }님</a></li>
 		</ul>
@@ -46,7 +46,7 @@
 	<div class="lnb">
 		<ul>
 			<li><a href="">도서보기</a></li>
-			<li><a href="">커뮤니티</a></li>			
+			<li><a href="${conPath }/boardList.do">커뮤니티</a></li>			
 			<li><a href="">마이페이지</a></li>			
 			<li><a href="">공지사항</a></li>			
 		</ul>
@@ -55,14 +55,14 @@
 	<c:if test="${empty member and not empty admin }">
 	<div class="gnb">
 		<ul>
-			<li><a href="${conPath }logout.do">관리자 로그아웃</a></li>
+			<li><a href="${conPath }/logout.do">관리자 로그아웃</a></li>
 			<li><a href="${conPath }/modifyView.do">정보수정</a></li>
 		</ul>
 	</div>
 	<div class="lnb">
 		<ul>
 			<li><a href="">도서보기</a></li>
-			<li><a href="">커뮤니티</a></li>			
+			<li><a href="${conPath }/boardList.do">커뮤니티</a></li>			
 			<li><a href="">마이페이지</a></li>			
 			<li><a href="">공지사항</a></li>			
 		</ul>

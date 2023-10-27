@@ -9,6 +9,16 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('tr').click(function() {
+				var fid = Number($(this).children().eq(0).text());
+				if(!isNaN(fid)){
+					location.href = '${conPath}/boardContent.do?fid='+fid+'&pageNum=${pagNum}';
+				}
+			});
+		});
+	</script>
 </head>
 <body>
 	<c:if test="${not empty boardResult }">
@@ -41,7 +51,7 @@
 								<c:if test="${i==board.findent }">└─</c:if>
 								<c:if test="${i!=board.findent }"> &nbsp; &nbsp; </c:if>
 							</c:forEach>
-							${board.ftitle } <!-- 글제목에 a태그를 걸지 말고 query로 tr을 클릭하면 상세보기 페이지로 가기 -->
+							${board.ftitle }
 							<c:if test="${not empty board.ffileName }">
 								<img src="https://cdn-icons-png.flaticon.com/512/5088/5088374.png" width="10">
 							</c:if>

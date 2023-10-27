@@ -82,27 +82,27 @@
 	});
 	</script>
 	<script>
-	  $( function() {
-	    $( "#datepicker" ).datepicker({
-	    	dateFormat: "yy-mm-dd",
-	    	monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-	    	dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
-	    	changeMonth: true, 
-	    	changeYear: true, 
-	    	showMonthAfterYear: true,
-	    	yearSuffix: '년',
-	    	showOtherMonths: true, 
-	    	minDate: new Date(1950, 1 - 1, 1), 
-	    	maxDate : 'y',
-	    	yearRange: 'c-100:c+10',
-	    });
-	  });
+		$( function() {
+		    $( "#datepicker" ).datepicker({
+		    	dateFormat: "yy-mm-dd",
+		    	monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    	dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
+		    	changeMonth: true, 
+		    	changeYear: true, 
+		    	showMonthAfterYear: true,
+		    	yearSuffix: '년',
+		    	showOtherMonths: true, 
+		    	minDate: new Date(1950, 1 - 1, 1), 
+		    	maxDate : 'y',
+		    	yearRange: 'c-100:c+10',
+		    });
+		});
   </script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content_form">
-		<form action="${conPath }/join.do" method="post" enctype="multipart/form-data">
+		<form action="${conPath }/join.do" method="post" >
 			<table>
 				<caption>회원가입</caption>
 				<tr>

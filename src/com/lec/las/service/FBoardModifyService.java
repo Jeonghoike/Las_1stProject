@@ -39,10 +39,9 @@ public class FBoardModifyService implements Service {
 			int fid = Integer.parseInt(mRequest.getParameter("fid"));
 			String ftitle = mRequest.getParameter("ftitle");
 			String fcontent = mRequest.getParameter("fcontent");
-			String fpw = mRequest.getParameter("fpw");
 			String fip = request.getRemoteAddr();
 			FileBoardDao boardDao = FileBoardDao.getInstance();
-			FileBoardDto boardDto = new FileBoardDto(fid, null, null, ftitle, fcontent, ffileName, fpw, 0, 0, 0, 0, fip, null);
+			FileBoardDto boardDto = new FileBoardDto(fid, null, null, ftitle, fcontent, ffileName, 0, 0, 0, 0, fip, null);
 			result = boardDao.modifyFileBoard(boardDto);
 			if(result == FileBoardDao.SUCCESS) { 
 				request.setAttribute("boaredResult", "글수정 성공");

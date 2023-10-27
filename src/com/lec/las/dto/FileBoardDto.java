@@ -9,7 +9,6 @@ public class FileBoardDto {
 	private String ftitle;
 	private String fcontent;
 	private String ffileName;
-	private String fpw;
 	private int fhit;
 	private int fgroup;
 	private int fstep;
@@ -17,15 +16,15 @@ public class FileBoardDto {
 	private String fip;
 	private Timestamp frdate;
 	public FileBoardDto() { }
-	public FileBoardDto(int fid, String mid, String mname, String ftitle, String fcontent, String ffileName, String fpw,
-			int fhit, int fgroup, int fstep, int findent, String fip, Timestamp frdate) {
+	public FileBoardDto(int fid, String mid, String mname, String ftitle, String fcontent, String ffileName, int fhit,
+			int fgroup, int fstep, int findent, String fip, Timestamp frdate) {
+		super();
 		this.fid = fid;
 		this.mid = mid;
 		this.mname = mname;
 		this.ftitle = ftitle;
 		this.fcontent = fcontent;
 		this.ffileName = ffileName;
-		this.fpw = fpw;
 		this.fhit = fhit;
 		this.fgroup = fgroup;
 		this.fstep = fstep;
@@ -69,12 +68,6 @@ public class FileBoardDto {
 	public void setFfileName(String ffileName) {
 		this.ffileName = ffileName;
 	}
-	public String getFpw() {
-		return fpw;
-	}
-	public void setFpw(String fpw) {
-		this.fpw = fpw;
-	}
 	public int getFhit() {
 		return fhit;
 	}
@@ -114,7 +107,7 @@ public class FileBoardDto {
 	@Override
 	public String toString() {
 		return "FileBoardDto [fid=" + fid + ", mid=" + mid + ", mname=" + mname + ", ftitle=" + ftitle + ", fcontent="
-				+ fcontent + ", ffileName=" + ffileName + ", fpw=" + fpw + ", fhit=" + fhit + ", fgroup=" + fgroup
-				+ ", fstep=" + fstep + ", findent=" + findent + ", fip=" + fip + ", frdate=" + frdate + "]";
+				+ fcontent + ", ffileName=" + ffileName + ", fhit=" + fhit + ", fgroup=" + fgroup + ", fstep=" + fstep
+				+ ", findent=" + findent + ", fip=" + fip + ", frdate=" + frdate + "]";
 	}
 }
