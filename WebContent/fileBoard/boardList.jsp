@@ -14,7 +14,7 @@
 			$('tr').click(function() {
 				var fid = Number($(this).children().eq(0).text());
 				if(!isNaN(fid)){
-					location.href = '${conPath}/boardContent.do?fid='+fid+'&pageNum=${pagNum}';
+					location.href = '${conPath}/boardContent.do?fid='+fid+'&pageNum=${pageNum}';
 				}
 			});
 		});
